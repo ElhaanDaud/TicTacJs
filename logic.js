@@ -23,14 +23,14 @@ function boxClicked(e){
 
     if(!spaces[id]){
         spaces[id] = currentPlayer
-        e.target.innerText=currentPlayer
+        e.target.innerText = currentPlayer
 
         if(playerHasWon() !==false){
             playerText.innerHTML = `${currentPlayer} has won!`
             let winning_blocks = playerHasWon()
 
             winning_blocks.map( box => boxes[box].style.backgroundColor=winnerIndicator)
-            return
+            return freezeScrn()
         }
     
 
@@ -39,6 +39,11 @@ function boxClicked(e){
     }
 
 }
+
+function freezeScrn() {
+    boxes.forEach(box => box.removeEventListener('click', boxClicked));
+}
+
 
 const winningCombos=[
     [0,1,2],
@@ -64,15 +69,18 @@ function playerHasWon() {
 
 restartBtn.addEventListener('click',restart)
 
-function restart(){
+function restart() {
     spaces.fill(null)
     boxes.forEach(box=>{
         box.innerText=''
         box.style.backgroundColor=''
     })
-    playerText='KAATI ZEERO'
+
+    playerText.innerHTML="KAATI ZEERO"
+
     currentPlayer= X_Text
-    
+
+    startGame()
 }
 
 startGame()

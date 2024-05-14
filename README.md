@@ -46,8 +46,4 @@ Contributions to the development of Kaati Zeero are welcome! If you have any sug
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details. -->
 
-## Acknowledgments
-
-- Inspired by the classic Tic-Tac-Toe game.
-
 
